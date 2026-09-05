@@ -10,7 +10,7 @@ export const profile = {
     'Full-Stack Engineer',
     'Mobile App Builder',
   ],
-  location: 'Kovilpatti, Tamil Nadu, India',
+  location: 'Sivakasi, Tamil Nadu, India',
   email: 'sivakumarmariappan30@gmail.com',
   phone: '+91 93607 63552',
   tagline:
