@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+body {
+  @apply font-body antialiased bg-base-950 text-ink-100 transition-colors duration-300;
+}
+
+html.light body {
+  @apply bg-paper-50 text-base-900;
+}
+
+::selection {
+  background: #5B6EF5;
+  color: #fff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(122, 129, 151, 0.35);
+  border-radius: 999px;
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #5B6EF5;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/[0.04] border border-white/[0.08] backdrop-blur-xl;
+  }
+
+  html.light .glass {
+    @apply bg-white/70 border-base-900/[0.06];
+  }
+
+  .glass-strong {
+    @apply bg-white/[0.06] border border-white/[0.10] backdrop-blur-2xl;
+  }
+
+  html.light .glass-strong {
+    @apply bg-white/85 border-base-900/[0.08];
+  }
+
+  .container-px {
+    @apply px-6 sm:px-10 lg:px-16;
+  }
+
+  .section-pad {
+    @apply py-16 sm:py-20;
+  }
+
+  .grain-overlay {
+    @apply pointer-events-none fixed inset-0 z-[1] bg-grain;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* ── Light-mode contrast fixes ─────────────────────────── */
+
+  /* Navbar links: ink-300 is too pale on paper-50 */
+  html.light nav a.text-ink-300 {
+    color: #242B42;
+    /* base-700 */
+  }
+
+  html.light nav a.text-ink-300:hover {
+    color: #08090F;
+    /* base-950 */
+  }
+
+  /* Skill card titles: ink-100 is near-white, invisible on light glass */
+  html.light .skill-card-title {
+    color: #0E111A;
+    /* base-900 */
+  }
+
+  /* Skill tags: light border + readable text in light mode */
+  html.light .glass span.text-ink-300 {
+    color: #242B42;
+    /* base-700 */
+    border-color: rgba(20, 25, 48, 0.15);
+  }
+
+  /* Phone frame card text (glass-strong): ink-100 is invisible on light glass */
+  html.light .glass-strong p.text-ink-100 {
+    color: #0E111A;
+    /* base-900 */
+  }
+
+  /* Achievement card labels in Experience */
+  html.light .glass p.text-ink-100 {
+    color: #0E111A;
+  }
+
+  /* Hero "Get in touch" outline button */
+  html.light .hero-outline-btn {
+    color: #0E111A;
+    /* base-900 — dark, legible */
+    border-color: rgba(14, 17, 26, 0.30);
+    /* visible border on paper-50 */
+  }
+
+  html.light .hero-outline-btn:hover {
+    border-color: rgba(14, 17, 26, 0.55);
+  }
+
+  /* Hero "Resume" ghost link */
+  html.light .hero-ghost-btn {
+    color: #242B42;
+    /* base-700 */
+  }
+
+  html.light .hero-ghost-btn:hover {
+    color: #08090F;
+    /* base-950 */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
