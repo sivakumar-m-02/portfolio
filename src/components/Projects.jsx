@@ -13,7 +13,7 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="max-w-2xl"
         >
-          <p className="font-mono text-sm text-signal-soft">Projects</p>
+          <p className="font-mono text-sm text-accent-signal">Projects</p>
           <h2 className="mt-3 text-balance font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             Two apps, two very different problems
           </h2>

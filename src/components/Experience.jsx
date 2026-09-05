@@ -12,7 +12,7 @@ export default function Experience() {
           transition={{ duration: 0.6 }}
           className="max-w-2xl"
         >
-          <p className="font-mono text-sm text-signal-soft">Experience</p>
+          <p className="font-mono text-sm text-accent-signal">Experience</p>
           <h2 className="mt-3 text-balance font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             One role, shipped in stages
           </h2>
@@ -24,24 +24,24 @@ export default function Experience() {
             {experience.map((job) => (
               <div key={job.id} className="relative pl-8">
                 <span className="absolute left-0 top-1.5 h-3 w-3 rounded-full bg-signal" />
-                <span className="absolute left-[5px] top-5 h-full w-px bg-white/10" />
+                <span className="absolute left-[5px] top-5 h-full w-px bg-fg-muted/20" />
 
-                <p className="font-mono text-xs text-ink-500">{job.period}</p>
+                <p className="font-mono text-xs font-medium text-fg-muted">{job.period}</p>
                 <h3 className="mt-1 font-display text-xl font-semibold">{job.title}</h3>
-                <p className="text-sm text-ink-300">
+                <p className="text-sm text-fg-secondary">
                   {job.company} · {job.location}
                 </p>
 
                 <ul className="mt-4 space-y-2">
                   {job.points.map((p) => (
-                    <li key={p} className="flex gap-2.5 text-sm leading-relaxed text-ink-300">
-                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-ink-500" />
+                    <li key={p} className="flex gap-2.5 text-sm leading-relaxed text-fg-secondary">
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-fg-muted/60" />
                       <span>{p}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="mt-8 space-y-6 border-l border-dashed border-white/10 pl-6">
+                <div className="mt-8 space-y-6 border-l border-dashed border-fg-muted/20 pl-6">
                   {projects.map((p, i) => (
                     <motion.div
                       key={p.id}
@@ -51,10 +51,10 @@ export default function Experience() {
                       transition={{ duration: 0.5, delay: i * 0.1 }}
                       className="relative"
                     >
-                      <span className="absolute -left-[26px] top-1.5 h-2 w-2 rounded-full bg-ink-500" />
-                      <p className="font-mono text-xs text-ink-500">{`0${i + 1}`}</p>
-                      <p className="text-sm font-medium text-ink-100">{p.name}</p>
-                      <p className="text-xs text-ink-500">{p.role}</p>
+                      <span className="absolute -left-[26px] top-1.5 h-2 w-2 rounded-full bg-fg-muted/60" />
+                      <p className="font-mono text-xs font-medium text-accent-signal">{`0${i + 1}`}</p>
+                      <p className="text-sm font-medium text-fg-primary">{p.name}</p>
+                      <p className="text-xs text-fg-muted">{p.role}</p>
                     </motion.div>
                   ))}
                 </div>
@@ -73,9 +73,9 @@ export default function Experience() {
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="glass rounded-tile p-5"
               >
-                <p className="font-display text-2xl font-semibold text-signal-soft">{a.stat}</p>
-                <p className="mt-2 text-sm font-medium text-ink-100">{a.label}</p>
-                <p className="mt-1.5 text-xs leading-relaxed text-ink-500">{a.detail}</p>
+                <p className="font-display text-2xl font-semibold text-accent-signal">{a.stat}</p>
+                <p className="mt-2 text-sm font-semibold text-fg-heading">{a.label}</p>
+                <p className="mt-1.5 text-xs leading-relaxed text-fg-muted">{a.detail}</p>
               </motion.div>
             ))}
           </div>

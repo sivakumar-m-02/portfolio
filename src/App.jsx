@@ -25,7 +25,7 @@ export default function App() {
         <Education />
         <Contact />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

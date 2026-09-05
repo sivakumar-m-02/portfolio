@@ -20,8 +20,8 @@ export const profile = {
   resumeFile: '/Sivakumar_M_Resume.pdf',
   socials: [
     { label: 'Email', href: 'mailto:sivakumarmariappan30@gmail.com', kind: 'email' },
-    { label: 'GitHub', href: 'https://github.com/', kind: 'github' },
-    { label: 'LinkedIn', href: 'https://linkedin.com/', kind: 'linkedin' },
+    // { label: 'GitHub', href: 'https://github.com/', kind: 'github' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/siva-kumar-m-594a09238/', kind: 'linkedin' },
   ],
 };
 

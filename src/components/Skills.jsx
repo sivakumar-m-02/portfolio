@@ -2,9 +2,9 @@ import { motion } from 'framer-motion';
 import { skillGroups } from '../data/resumeData';
 
 const accentMap = {
-  signal: { dot: 'bg-signal', text: 'text-signal-soft', border: 'hover:border-signal/40' },
-  mint: { dot: 'bg-mint', text: 'text-mint', border: 'hover:border-mint/40' },
-  amber: { dot: 'bg-amber', text: 'text-amber', border: 'hover:border-amber/40' },
+  signal: { dot: 'bg-signal', text: 'text-accent-signal', border: 'hover:border-signal/40' },
+  mint: { dot: 'bg-mint', text: 'text-accent-mint', border: 'hover:border-mint/40' },
+  amber: { dot: 'bg-amber', text: 'text-accent-amber', border: 'hover:border-amber/40' },
 };
 
 export default function Skills() {
@@ -18,7 +18,7 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="max-w-2xl"
         >
-          <p className="font-mono text-sm text-signal-soft">Skills</p>
+          <p className="font-mono text-sm text-accent-signal">Skills</p>
           <h2 className="mt-3 text-balance font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             The toolkit behind every release
           </h2>
@@ -38,13 +38,13 @@ export default function Skills() {
               >
                 <div className="mb-4 flex items-center gap-2">
                   <span className={`h-2 w-2 rounded-full ${accent.dot}`} />
-                  <h3 className="font-display text-sm font-medium text-ink-100 skill-card-title">{group.title}</h3>
+                  <h3 className="font-display text-sm font-semibold text-fg-heading">{group.title}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {group.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-full border border-white/10 px-3 py-1.5 text-xs text-ink-300"
+                      className="rounded-full border border-fg-muted/20 px-3 py-1.5 text-xs font-medium text-fg-secondary"
                     >
                       {skill}
                     </span>

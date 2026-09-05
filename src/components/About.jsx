@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Download } from 'lucide-react';
 import { profile, strengths } from '../data/resumeData';
 
 export default function About() {
@@ -12,11 +13,20 @@ export default function About() {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.6 }}
           >
-            <p className="font-mono text-sm text-signal-soft">About</p>
+            <p className="font-mono text-sm text-accent-signal">About</p>
             <h2 className="mt-3 text-balance font-display text-3xl font-semibold tracking-tight sm:text-4xl">
               What I do, in one screen
             </h2>
-            <p className="mt-6 text-balance leading-relaxed text-ink-300">{profile.summary}</p>
+            <p className="mt-6 text-balance leading-relaxed text-fg-secondary">{profile.summary}</p>
+
+            <a
+              href={profile.resumeFile}
+              download
+              className="mt-8 inline-flex items-center gap-2 rounded-pill border border-fg-primary/25 px-5 py-2.5 text-sm font-medium text-fg-primary transition-colors hover:border-signal hover:text-accent-signal"
+            >
+              <Download size={16} />
+              Download full resume
+            </a>
           </motion.div>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -29,8 +39,8 @@ export default function About() {
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="glass rounded-tile p-6"
               >
-                <p className="font-display text-lg font-medium">{s.label}</p>
-                <p className="mt-2 text-sm leading-relaxed text-ink-500">{s.detail}</p>
+                <p className="font-display text-lg font-medium text-fg-heading">{s.label}</p>
+                <p className="mt-2 text-sm leading-relaxed text-fg-muted">{s.detail}</p>
               </motion.div>
             ))}
           </div>

@@ -37,6 +37,20 @@ export default {
           300: '#D8D5CC',
           500: '#8B8778',
         },
+        // Theme-aware semantic text tokens (backed by CSS variables in index.css).
+        // Use these for any text color instead of the raw ink/ scale so contrast
+        // is always correct in both dark and light mode.
+        fg: {
+          heading: 'var(--fg-heading)',
+          primary: 'var(--fg-primary)',
+          secondary: 'var(--fg-secondary)',
+          muted: 'var(--fg-muted)',
+        },
+        accent: {
+          signal: 'var(--accent-signal)',
+          mint: 'var(--accent-mint)',
+          amber: 'var(--accent-amber)',
+        },
       },
       fontFamily: {
         display: ['"Space Grotesk"', 'sans-serif'],

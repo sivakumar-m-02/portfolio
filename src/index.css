@@ -2,24 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+  Semantic text tokens — these CSS variables are the single source of
+  truth for text color and flip automatically between dark and light
+  mode. Components use text-fg-heading / text-fg-primary / text-fg-secondary
+  / text-fg-muted / text-accent-* instead of hardcoding a palette shade,
+  so nothing goes invisible when the theme changes.
+*/
 :root {
   color-scheme: dark;
+
+  --fg-heading: #FFFFFF;
+  --fg-primary: #E7E9F2;
+  --fg-secondary: #AFB5C8;
+  --fg-muted: #868EA2;
+
+  --accent-signal: #91A3FF;
+  --accent-mint: #45E3B7;
+  --accent-amber: #FFAD66;
+}
+
+html.light {
+  color-scheme: light;
+
+  --fg-heading: #0B0D16;
+  --fg-primary: #20232E;
+  --fg-secondary: #494E5F;
+  --fg-muted: #6B7183;
+
+  --accent-signal: #3548D6;
+  --accent-mint: #08795C;
+  --accent-amber: #96490D;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-html.light {
-  color-scheme: light;
-}
-
 body {
-  @apply font-body antialiased bg-base-950 text-ink-100 transition-colors duration-300;
+  @apply font-body antialiased bg-base-950 transition-colors duration-300;
+  color: var(--fg-primary);
 }
 
 html.light body {
-  @apply bg-paper-50 text-base-900;
+  @apply bg-paper-50;
+}
+
+h1, h2, h3 {
+  color: var(--fg-heading);
 }
 
 ::selection {
@@ -28,14 +58,8 @@ html.light body {
 }
 
 /* Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
   background: rgba(122, 129, 151, 0.35);
   border-radius: 999px;
@@ -55,101 +79,38 @@ textarea:focus-visible {
   .glass {
     @apply bg-white/[0.04] border border-white/[0.08] backdrop-blur-xl;
   }
-
   html.light .glass {
-    @apply bg-white/70 border-base-900/[0.06];
+    @apply bg-white/80 border-base-900/[0.07];
   }
-
   .glass-strong {
     @apply bg-white/[0.06] border border-white/[0.10] backdrop-blur-2xl;
   }
-
   html.light .glass-strong {
-    @apply bg-white/85 border-base-900/[0.08];
+    @apply bg-white/90 border-base-900/[0.08];
   }
-
   .container-px {
     @apply px-6 sm:px-10 lg:px-16;
   }
-
   .section-pad {
-    @apply py-16 sm:py-20;
+    @apply py-14 sm:py-20;
   }
-
   .grain-overlay {
     @apply pointer-events-none fixed inset-0 z-[1] bg-grain;
   }
-
   .text-balance {
     text-wrap: balance;
   }
-
-  /* ── Light-mode contrast fixes ─────────────────────────── */
-
-  /* Navbar links: ink-300 is too pale on paper-50 */
-  html.light nav a.text-ink-300 {
-    color: #242B42;
-    /* base-700 */
-  }
-
-  html.light nav a.text-ink-300:hover {
-    color: #08090F;
-    /* base-950 */
-  }
-
-  /* Skill card titles: ink-100 is near-white, invisible on light glass */
-  html.light .skill-card-title {
-    color: #0E111A;
-    /* base-900 */
-  }
-
-  /* Skill tags: light border + readable text in light mode */
-  html.light .glass span.text-ink-300 {
-    color: #242B42;
-    /* base-700 */
-    border-color: rgba(20, 25, 48, 0.15);
-  }
-
-  /* Phone frame card text (glass-strong): ink-100 is invisible on light glass */
-  html.light .glass-strong p.text-ink-100 {
-    color: #0E111A;
-    /* base-900 */
-  }
-
-  /* Achievement card labels in Experience */
-  html.light .glass p.text-ink-100 {
-    color: #0E111A;
-  }
-
-  /* Hero "Get in touch" outline button */
-  html.light .hero-outline-btn {
-    color: #0E111A;
-    /* base-900 — dark, legible */
-    border-color: rgba(14, 17, 26, 0.30);
-    /* visible border on paper-50 */
-  }
-
-  html.light .hero-outline-btn:hover {
-    border-color: rgba(14, 17, 26, 0.55);
-  }
-
-  /* Hero "Resume" ghost link */
-  html.light .hero-ghost-btn {
-    color: #242B42;
-    /* base-700 */
-  }
-
-  html.light .hero-ghost-btn:hover {
-    color: #08090F;
-    /* base-950 */
+  /* Soft brand gradient — used once, on the hero name, as an identity mark */
+  .text-gradient-brand {
+    background: linear-gradient(135deg, var(--accent-signal) 0%, #B9A6FF 55%, var(--accent-mint) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;

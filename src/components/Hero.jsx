@@ -38,7 +38,7 @@ export default function Hero() {
 
       <div className="container-px mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 lg:grid-cols-[1.15fr_0.85fr]">
         <motion.div variants={container} initial="hidden" animate="show">
-          <motion.p variants={item} className="mb-5 font-mono text-sm text-signal-soft">
+          <motion.p variants={item} className="mb-5 font-mono text-sm font-medium text-accent-signal">
             {profile.location}
           </motion.p>
 
@@ -46,14 +46,14 @@ export default function Hero() {
             variants={item}
             className="text-balance font-display text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl"
           >
-            {profile.name}
-            <span className="mt-3 block h-[1.2em] text-2xl font-medium text-ink-300 sm:text-3xl">
+            <span className="text-gradient-brand">{profile.name}</span>
+            <span className="mt-3 block h-[1.2em] text-2xl font-medium text-fg-secondary sm:text-3xl">
               {roleText}
               <span className="ml-0.5 inline-block h-[0.9em] w-[2px] translate-y-[2px] animate-blink bg-signal align-middle" />
             </span>
           </motion.h1>
 
-          <motion.p variants={item} className="mt-6 max-w-xl text-balance text-lg leading-relaxed text-ink-300">
+          <motion.p variants={item} className="mt-6 max-w-xl text-balance text-lg leading-relaxed text-fg-secondary">
             {profile.tagline}
           </motion.p>
 
@@ -67,32 +67,32 @@ export default function Hero() {
             </a>
             <a
               href="#contact"
-              className="hero-outline-btn inline-flex items-center gap-2 rounded-pill border border-white/15 px-6 py-3 text-sm font-medium text-ink-100 transition-colors hover:border-white/30"
+              className="inline-flex items-center gap-2 rounded-pill border border-fg-primary/25 px-6 py-3 text-sm font-medium text-fg-primary transition-colors hover:border-fg-primary/50"
             >
               Get in touch
             </a>
             <a
               href={profile.resumeFile}
               download
-              className="hero-ghost-btn inline-flex items-center gap-2 px-2 py-3 text-sm font-medium text-ink-300 transition-colors hover:text-ink-50"
+              className="inline-flex items-center gap-2 px-2 py-3 text-sm font-medium text-fg-secondary transition-colors hover:text-fg-heading"
             >
               <Download size={16} />
               Resume
             </a>
           </motion.div>
 
-          <motion.div variants={item} className="mt-14 flex gap-10 border-t border-white/10 pt-8">
+          <motion.div variants={item} className="mt-14 flex gap-10 border-t border-fg-muted/15 pt-8">
             <div>
-              <p className="font-display text-2xl font-semibold">3 yrs</p>
-              <p className="mt-1 text-sm text-ink-500">Production experience</p>
+              <p className="font-display text-2xl font-semibold text-fg-heading">3 yrs</p>
+              <p className="mt-1 text-sm text-fg-muted">Production experience</p>
             </div>
             <div>
-              <p className="font-display text-2xl font-semibold">2</p>
-              <p className="mt-1 text-sm text-ink-500">Apps shipped to real users</p>
+              <p className="font-display text-2xl font-semibold text-fg-heading">2</p>
+              <p className="mt-1 text-sm text-fg-muted">Apps shipped to real users</p>
             </div>
             <div>
-              <p className="font-display text-2xl font-semibold">1000s</p>
-              <p className="mt-1 text-sm text-ink-500">People using the apps</p>
+              <p className="font-display text-2xl font-semibold text-fg-heading">1000s</p>
+              <p className="mt-1 text-sm text-fg-muted">People using the apps</p>
             </div>
           </motion.div>
         </motion.div>
@@ -128,11 +128,11 @@ export default function Hero() {
                   transition={{ delay: 1.1, duration: 0.5 }}
                   className="glass-strong mt-8 rounded-tile p-4"
                 >
-                  <p className="font-mono text-[10px] text-mint">AI expense parser</p>
-                  <p className="mt-2 text-sm !text-ink-100">"Coffee with client, ₹450"</p>
-                  <div className="mt-3 flex items-center justify-between text-xs text-ink-500">
+                  <p className="font-mono text-[10px] font-medium text-accent-mint">AI expense parser</p>
+                  <p className="mt-2 text-sm text-fg-primary">"Coffee with client, ₹450"</p>
+                  <div className="mt-3 flex items-center justify-between text-xs text-fg-muted">
                     <span>Auto-categorized</span>
-                    <span className="text-mint">Food &amp; Drink</span>
+                    <span className="text-accent-mint">Food &amp; Drink</span>
                   </div>
                 </motion.div>
                 <motion.div
@@ -141,8 +141,8 @@ export default function Hero() {
                   transition={{ delay: 1.3, duration: 0.5 }}
                   className="glass-strong mt-4 rounded-tile p-4"
                 >
-                  <p className="font-mono text-[10px] text-amber">Session reminder</p>
-                  <p className="mt-2 text-sm !text-ink-100">Keynote starts in 15 min</p>
+                  <p className="font-mono text-[10px] font-medium text-accent-amber">Session reminder</p>
+                  <p className="mt-2 text-sm text-fg-primary">Keynote starts in 15 min</p>
                   <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-white/10">
                     <div className="h-full w-2/3 rounded-full bg-amber" />
                   </div>
