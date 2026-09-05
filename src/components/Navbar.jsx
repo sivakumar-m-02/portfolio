@@ -22,6 +22,20 @@ export default function Navbar({ theme, toggleTheme }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Mobile nav: close menu first, then scroll after animation finishes
+  const handleMobileNav = (e, href) => {
+    e.preventDefault();
+    setOpen(false);
+    setTimeout(() => {
+      const target = document.querySelector(href);
+      if (target) {
+        const navHeight = 64; // h-16 = 64px
+        const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }, 280); // matches menu exit animation duration (0.25s + small buffer)
+  };
+
   return (
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'glass shadow-glass' : 'bg-transparent border-b border-transparent'
@@ -89,7 +103,7 @@ export default function Navbar({ theme, toggleTheme }) {
                 <a
                   key={l.href}
                   href={l.href}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => handleMobileNav(e, l.href)}
                   className="rounded-lg px-2 py-2.5 text-sm font-medium text-fg-secondary hover:bg-fg-muted/10 hover:text-fg-heading"
                 >
                   {l.label}
