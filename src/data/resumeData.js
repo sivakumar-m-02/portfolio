@@ -101,8 +101,6 @@ export const skillGroups = [
     skills: [
       'AWS S3',
       'AWS EC2',
-      'AWS ECS',
-      'AWS ECR',
       'CloudWatch',
       'CI/CD Fundamentals',
       'Version Control (Git & GitHub)',
