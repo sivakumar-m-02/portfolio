@@ -24,7 +24,7 @@ export default function Skills() {
           </h2>
         </motion.div>
 
-        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((group, gi) => {
             const accent = accentMap[group.accent];
             return (
@@ -33,7 +33,7 @@ export default function Skills() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.5, delay: (gi % 4) * 0.07 }}
+                transition={{ duration: 0.5, delay: (gi % 3) * 0.08 }}
                 className={`glass rounded-tile p-6 transition-colors ${accent.border}`}
               >
                 <div className="mb-4 flex items-center gap-2">
